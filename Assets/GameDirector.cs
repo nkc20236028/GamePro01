@@ -7,21 +7,30 @@ using UnityEngine.UI;
 public class GameDirector : MonoBehaviour
 {
     GameObject TimeGauge;
-    float time = 1000.0f;
+    float time = 100f;
     // Start is called before the first frame update
     void Start()
     {
         this.TimeGauge = GameObject.Find("TimeGauge");
     }
 
-   
+
 
     // Update is called once per frame
     void Update()
     {
-       
+        this.time -= Time.deltaTime;
+
+      
+        this.TimeGauge.GetComponent<Image>().fillAmount -= 0.01f;
+        
 
 
-        this.TimeGauge.GetComponent<Image>().fillAmount = Time.deltaTime;
+        Debug.Log(time);
+
+
+
+
     }
 }
+
